@@ -25,13 +25,14 @@ export class UsersComponent implements OnInit {
     this.inscription = this.route.params.subscribe(
       (params: any) => {
         this.username = params['username'];
-
         if(!this.username){
           this.router.navigate(['/user', 'notfound']);
+        } else {
+          this.getUser();
         }
       }
     );
-    this.getUser();
+    
   }
 
   ngOnDestroy(){
@@ -39,7 +40,10 @@ export class UsersComponent implements OnInit {
   }
 
   getUser(){
-    this.user = this.usersService.getUser();
+    let promiseUser = this.usersService.getUser(this.username);
+    promiseUser.then(
+      res => this.user = res
+    )
   }
 
 }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { UsersComponent } from './users.component';
 import { UserNotFoundComponent } from './user-not-found/user-not-found.component';
@@ -17,7 +18,8 @@ import { UserRepositoriesDetailsComponent } from './user-repositories/user-repos
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    HttpModule
   ],
   exports: [UsersComponent],
   providers: [UsersService]

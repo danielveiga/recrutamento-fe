@@ -1,3 +1,18 @@
-<p>
-  user-repositories works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome do repositório</th>
+      <th>Número de Estrelas 
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let repository of repositories">
+      <td>{{repository.name}}</td>
+      <td>{{repository.stargazers_count}}</td>
+    </tr>
+  </tbody>
+</table>

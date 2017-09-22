@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Rx';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { UsersService } from './../users.service';
 
 @Component({
   selector: 'app-user-repositories',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserRepositoriesComponent implements OnInit {
 
-  constructor() { }
+  username;
+  repositories: any[];
+
+  constructor(
+    private usersService: UsersService) { }
 
   ngOnInit() {
+    this.username = this.usersService.getUsername();
+    this.getUserRepositories();
+      
+  }
+
+  getUserRepositories(){
+    let promiseUser = this.usersService.getUserRepositories(this.username);
+    promiseUser.then(
+      res => this.repositories = res
+    )
   }
 
 }
