@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UsersService } from './users/users.service';
+import { LoadingModule }  from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UsersService } from './users/users.service';
     BrowserModule,
     UsersModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoadingModule
   ],
   //providers: [UsersService],
   bootstrap: [AppComponent]

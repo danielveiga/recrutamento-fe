@@ -1,3 +1,4 @@
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
@@ -7,7 +8,7 @@ import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
     
-    //{ path: 'user/notfound', component: UserNotFoundComponent },
+    //{ path: 'user', component: AppComponent },
     //{ path: 'user/:username', component: UsersComponent }
 ];
 

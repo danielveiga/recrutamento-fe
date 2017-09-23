@@ -11,6 +11,7 @@ import { UsersService } from './../users.service';
 })
 export class UserRepositoriesComponent implements OnInit {
 
+  public loading = false;
   username;
   repositories: any[];
 
@@ -20,13 +21,16 @@ export class UserRepositoriesComponent implements OnInit {
   ngOnInit() {
     this.username = this.usersService.getUsername();
     this.getUserRepositories();
-      
   }
 
   getUserRepositories(){
+    this.loading = true;
     let promiseUser = this.usersService.getUserRepositories(this.username);
     promiseUser.then(
-      res => this.repositories = res
+      res => {
+        this.repositories = res;
+        this.loading = false;
+      }
     )
   }
 
