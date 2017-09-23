@@ -1,3 +1,6 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px'}"></ngx-loading>
+<div class="col-12">
+<a [routerLink]="['/user', username]"><i class="fa fa-times" aria-hidden="true"></i> fechar</a>
 <table class="table">
   <thead>
     <tr>
@@ -7,12 +10,15 @@
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
       </th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let repository of repositories">
       <td>{{repository.name}}</td>
       <td>{{repository.stargazers_count}}</td>
+      <td><a [routerLink]="[repository.name]" class="btn btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
     </tr>
   </tbody>
 </table>
+</div>

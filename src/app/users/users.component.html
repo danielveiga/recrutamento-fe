@@ -1,32 +1,27 @@
-<div *ngIf="!user">
-  <i class="fa fa-database" aria-hidden="true"></i>
-  <span>Não foi encontrado nenhum usuário com esse username</span>
-</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="col-12 inline-block">
+  <div *ngIf="!user">
+    <i class="fa fa-database" aria-hidden="true"></i>
+    <span>Não foi encontrado nenhum usuário com esse username</span>
+  </div>
 
-<div class="user-information col-3 float-left" *ngIf="user">
-  <img src="{{user.avatar_url}}" height="200px" class="">
-  <div class="names-container">
+  <div *ngIf="user" class="user-information col-3 float-left text-align-right">
+    <img src="{{user.avatar_url}}" height="200px" class="">
+  </div>
+
+  <div *ngIf="user" class="user-information col-8 float-left">
     <h1 class="names">
-      <span class="fullname d-block">{{user.name}}</span>
-      <span class="username d-block">{{user.login}}</span>
-      <span class="username d-block">{{user.email}}</span>
-    </h1>
+        <span class="fullname">{{user.name}}</span>
+        <span class="username">{{user.login}}</span>
+        <span class="username">{{user.email}}</span>
+        <span class="fullname">{{user.bio}}</span>
+        <span class="others"><i class="fa fa-user-o" aria-hidden="true"></i> Seguidores: {{user.followers}}</span>
+        <span class="others"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Seguindo: {{user.following}}</span>
+        <a [routerLink]="['repos']" class="others d-block text-primary">Repositórios públicos: {{user.public_repos}}</a>
+      </h1>
   </div>
 </div>
 
-
-
-<div class="user-information col-9 float-left">
-  <div class="names-container">
-    <h1 class="names">
-      <span class="fullname d-block">{{user.bio}}</span>
-      <span class="others d-block"><i class="fa fa-user-o" aria-hidden="true"></i> Seguidores: {{user.followers}}</span>
-      <span class="others d-block"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Seguindo: {{user.following}}</span>
-      <a [routerLink]="['repos']" class="others d-block text-primary">Repositórios públicos: {{user.public_repos}}</a>
-    </h1>
-  </div>
-  
-</div>
 <router-outlet></router-outlet>
 
 

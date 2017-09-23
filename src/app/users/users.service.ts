@@ -33,6 +33,12 @@ export class UsersService {
 	        .catch(this.handleErrorPromise);
     }
 
+    getRepositoryByUsernameAndName(username, repositoryName){
+        return this.http.get(this.apiUrl+'repos/'+username+'/'+repositoryName).toPromise()
+	        .then(this.extractData)
+	        .catch(this.handleErrorPromise);
+    }
+
     getUsername(){
       return this.username;
     }

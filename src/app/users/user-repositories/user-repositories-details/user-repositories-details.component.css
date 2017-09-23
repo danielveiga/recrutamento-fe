@@ -1,0 +1,16 @@
+.repository-information{
+    margin-top: 20px;
+}
+
+.names{
+    line-height: 1;
+    display: inline-grid;
+}
+
+.others{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    margin-top: 5px;
+}

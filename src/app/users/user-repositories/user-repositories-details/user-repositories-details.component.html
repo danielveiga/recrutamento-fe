@@ -1,3 +1,12 @@
-<p>
-  user-repositories-details works!
-</p>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<a [routerLink]="['/user', username, 'repos']"><i class="fa fa-chevron-left" aria-hidden="true"></i> voltar</a>
+<div *ngIf="repository" class="repository-information col-12 float-left">
+    <h3 class="names">
+      <span>Nome: {{repository.name}}</span>
+      <span>Descrição: {{repository.description}}</span>
+      <span>Número de estrelas: {{repository.stargazers_count}}</span>
+      <span>Número de estrelas: {{repository.language}}</span>
+      <a class="others d-block text-primary" href="{{repository.html_url}}" target="_blank">Clique para abrir no GitHub</a>
+    </h3>
+  
+</div>
