@@ -11,7 +11,6 @@ const usersRoutes: Routes = [
     { path: 'user/:username', component: UsersComponent, children: [
         { path: 'repos', component: UserRepositoriesComponent},
         { path: 'repos/:name', component: UserRepositoriesDetailsComponent},
-        { path: 'notfound', component: UserNotFoundComponent }
     ]}
 ];
 

@@ -1,9 +1,5 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div class="col-12 inline-block">
-  <div *ngIf="!user">
-    <i class="fa fa-database" aria-hidden="true"></i>
-    <span>Não foi encontrado nenhum usuário com esse username</span>
-  </div>
 
   <div *ngIf="user" class="user-information col-3 float-left text-align-right">
     <img src="{{user.avatar_url}}" height="200px" class="">

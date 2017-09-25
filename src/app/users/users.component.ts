@@ -30,7 +30,6 @@ export class UsersComponent implements OnInit {
         this.username = params['username'];
         if(!this.username){
           this.loading = false;
-          this.router.navigate(['/user', 'notfound']);
         } else {
           this.getUser();
         }
@@ -52,6 +51,7 @@ export class UsersComponent implements OnInit {
     )
     .catch(res => {
       this.user = undefined;
+      this.router.navigate(['/notfound']);
       this.loading = false;
     })
   }
