@@ -8,11 +8,13 @@ import { UsersModule } from './users/users.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UsersService } from './users/users.service';
 import { LoadingModule }  from 'ngx-loading';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
