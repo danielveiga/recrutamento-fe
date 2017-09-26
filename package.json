@@ -2,7 +2,7 @@
   "name": "recrutamento-fe",
   "version": "0.0.0",
   "license": "MIT",
-  "node": "6.11.3",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "preinstall": "npm install -g @angular/cli",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "grunt sass:production && ng build --aot -prod"
+  },
+  "engines" : {
+    "node": "6.11.3",
+    "npm": "3.10.10"
   },
   "private": true,
   "dependencies": {
