@@ -1,11 +1,14 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-<a [routerLink]="['/user', username, 'repos']"><i class="fa fa-chevron-left" aria-hidden="true"></i> voltar</a>
+<a [routerLink]="['/user', username, 'repos']"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
 <div *ngIf="repository" class="repository-information col-12 float-left">
     <h3 class="names">
-      <span>Nome: {{repository.name}}</span>
-      <span>Descrição: {{repository.description}}</span>
-      <span>Número de estrelas: {{repository.stargazers_count}}</span>
-      <span>Número de estrelas: {{repository.language}}</span>
+      <span class="description">Nome: {{repository.name}}</span>
+      <span class="description">Descrição: {{repository.description}}</span>
+      <span class="description">
+        Estrelas: {{repository.stargazers_count}}
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </span>
+      <span class="description">Linguagem: {{repository.language}}</span>
       <a class="others d-block text-primary" href="{{repository.html_url}}" target="_blank">Clique para abrir no GitHub</a>
     </h3>
   
