@@ -32,14 +32,14 @@ export class UserRepositoriesDetailsComponent implements OnInit {
     );
   }
 
-  getRepositoryByUsernameAndName(){
-    let promiseUser = this.usersService.getRepositoryByUsernameAndName(this.username, this.repositoryName);
+  getRepositoryByUsernameAndName() {
+    const promiseUser = this.usersService.getRepositoryByUsernameAndName(this.username, this.repositoryName);
     promiseUser.then(
       res => {
         this.repository = res;
         this.loading = false;
       }
-    )
+    );
   }
 
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { ModuleWithProviders } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { UserNotFoundComponent } from './user-not-found/user-not-found.component';
 import { UserRepositoriesComponent } from './user-repositories/user-repositories.component';

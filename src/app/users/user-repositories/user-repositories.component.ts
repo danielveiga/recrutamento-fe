@@ -23,15 +23,15 @@ export class UserRepositoriesComponent implements OnInit {
     this.getUserRepositories();
   }
 
-  getUserRepositories(){
+  getUserRepositories() {
     this.loading = true;
-    let promiseUser = this.usersService.getUserRepositories(this.username);
+    const promiseUser = this.usersService.getUserRepositories(this.username);
     promiseUser.then(
       res => {
         this.repositories = res;
         this.loading = false;
       }
-    )
+    );
   }
 
 }

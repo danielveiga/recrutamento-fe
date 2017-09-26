@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
@@ -9,7 +9,7 @@ import { UsersService } from './users.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
 
   public loading = false;
   username: string;
@@ -18,17 +18,16 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router, 
-    private usersService: UsersService) { 
+    private router: Router,
+    private usersService: UsersService) {
   }
 
   ngOnInit() {
-    
     this.inscription = this.route.params.subscribe(
       (params: any) => {
         this.loading = true;
         this.username = params['username'];
-        if(!this.username){
+        if (!this.username) {
           this.loading = false;
         } else {
           this.getUser();
@@ -37,12 +36,12 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.inscription.unsubscribe();
   }
 
-  getUser(){
-    let promiseUser = this.usersService.getUser(this.username);
+  getUser() {
+    const promiseUser = this.usersService.getUser(this.username);
     promiseUser.then(
       res => {
         this.user = res;
@@ -53,7 +52,7 @@ export class UsersComponent implements OnInit {
       this.user = undefined;
       this.router.navigate(['/notfound']);
       this.loading = false;
-    })
+    });
   }
 
 }

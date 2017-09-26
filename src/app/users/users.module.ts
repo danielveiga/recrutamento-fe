@@ -23,10 +23,10 @@ import { UserRepositoriesDetailsComponent } from './user-repositories/user-repos
     HttpModule,
     LoadingModule.forRoot({
         animationType: ANIMATION_TYPES.rotatingPlane,
-        backdropBackgroundColour: 'rgba(0,0,0,0.2)', 
+        backdropBackgroundColour: 'rgba(0,0,0,0.2)',
         backdropBorderRadius: '4px',
-        primaryColour: '#3377ff', 
-        secondaryColour: '#ffffff', 
+        primaryColour: '#3377ff',
+        secondaryColour: '#ffffff',
         tertiaryColour: '#ffffff',
         fullScreenBackdrop: true
     })
@@ -34,4 +34,5 @@ import { UserRepositoriesDetailsComponent } from './user-repositories/user-repos
   exports: [UsersComponent],
   providers: [UsersService]
 })
-export class UsersModule { }
+export class UsersModule {}
+

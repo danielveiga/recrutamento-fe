@@ -11,7 +11,7 @@ export class UsersService {
   constructor(private http: Http) { }
 
   private extractData(res: Response) {
-        let body = res.json();
+        const body = res.json();
         return body;
     }
 
@@ -19,27 +19,27 @@ export class UsersService {
         console.error(error.message || error);
         return Promise.reject(error.message || error);
     }
-    
-    getUser(username){
+
+    getUser(username) {
       this.username = username;
-        return this.http.get(this.apiUrl+'users/'+username).toPromise()
-	        .then(this.extractData)
-	        .catch(this.handleErrorPromise);
+        return this.http.get(this.apiUrl + 'users/' + username).toPromise()
+                .then(this.extractData)
+                .catch(this.handleErrorPromise);
     }
 
-    getUserRepositories(username){
-        return this.http.get(this.apiUrl+'users/'+username+'/repos').toPromise()
-	        .then(this.extractData)
-	        .catch(this.handleErrorPromise);
+    getUserRepositories(username) {
+        return this.http.get(this.apiUrl + 'users/' + username + '/repos').toPromise()
+                .then(this.extractData)
+                .catch(this.handleErrorPromise);
     }
 
-    getRepositoryByUsernameAndName(username, repositoryName){
-        return this.http.get(this.apiUrl+'repos/'+username+'/'+repositoryName).toPromise()
-	        .then(this.extractData)
-	        .catch(this.handleErrorPromise);
+    getRepositoryByUsernameAndName(username, repositoryName) {
+        return this.http.get(this.apiUrl + 'repos/' + username + '/' + repositoryName).toPromise()
+                .then(this.extractData)
+                .catch(this.handleErrorPromise);
     }
 
-    getUsername(){
+    getUsername() {
       return this.username;
     }
 
