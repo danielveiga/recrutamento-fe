@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Rx';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -36,15 +36,4 @@ export class UserRepositoriesComponent implements OnInit {
       }
     );
   }
-
-  openDetails(repoName) {
-    this.router.navigate(['/user', this.username, 'repos', repoName]);
-    this.nameClicked = repoName;
-  }
-
-  closeDetails() {
-    this.router.navigate(['/user', this.username, 'repos']);
-    this.nameClicked = undefined;
-  }
-
 }

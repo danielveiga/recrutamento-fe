@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
@@ -9,7 +9,7 @@ import { UsersService } from './../../users.service';
   templateUrl: './user-repositories-details.component.html',
   styleUrls: ['./user-repositories-details.component.css']
 })
-export class UserRepositoriesDetailsComponent implements OnInit {
+export class UserRepositoriesDetailsComponent implements OnInit, OnDestroy {
 
   public loading = false;
   username;
@@ -22,14 +22,18 @@ export class UserRepositoriesDetailsComponent implements OnInit {
     private usersService: UsersService) { }
 
   ngOnInit() {
-    this.loading = true;
     this.username = this.usersService.getUsername();
     this.inscription = this.route.params.subscribe(
       (params: any) => {
+        this.loading = true;
         this.repositoryName = params['name'];
         this.getRepositoryByUsernameAndName();
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.inscription.unsubscribe();
   }
 
   getRepositoryByUsernameAndName() {
