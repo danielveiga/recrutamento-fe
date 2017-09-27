@@ -4,8 +4,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Nome do repositório</th>
-      <th class="w50">Número de Estrelas 
+      <th (click)="sort('full_name');">
+        Nome do repositório
+        <span [ngClass]="{'fa fa-chevron-up':reverse, 'fa fa-chevron-down':!reverse}"></span></th>
+      <th class="w50">Estrelas 
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
@@ -31,5 +33,22 @@
     </tr>
   </tbody>
 </table>
+<nav class="float-right">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previousPage()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link">{{page}}</a></li>
+    <li class="page-item">
+      <a class="page-link" (click)="nextPage()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
 </div>

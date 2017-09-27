@@ -1,6 +1,7 @@
 .user-information{
     margin-top: 25px;
     margin-bottom: 25px;
+    min-width: 240px;
 }
 
 img{

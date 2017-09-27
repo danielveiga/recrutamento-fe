@@ -16,6 +16,9 @@ export class UserRepositoriesComponent implements OnInit {
   repositories: any[];
   isClicked: boolean = false;
   nameClicked;
+  reverse: boolean = false;
+  sortKey = 'full_name';
+  page: number = 1;
 
   constructor(
     private usersService: UsersService,
@@ -23,12 +26,37 @@ export class UserRepositoriesComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.usersService.getUsername();
-    this.getUserRepositories();
+    this.getUserRepositories('name', 'asc', this.page);
   }
 
-  getUserRepositories() {
+  sort(param) {
+    this.sortKey = param;
+    this.reverse = !this.reverse; 
+    this.getUserRepositories(param, this.reverse, this.page);
+  }
+
+  nextPage() {
+    if(this.repositories.length==10){
+      this.page = this.page+1;
+      this.getUserRepositories(this.sortKey, this.reverse, this.page)
+    }
+  }
+
+  previousPage() {
+    if(this.page>1){
+      this.page--;
+      this.getUserRepositories(this.sortKey, this.reverse, this.page)
+    }
+  }
+
+  getUserRepositories(param, reverse, page) {
     this.loading = true;
-    const promiseUser = this.usersService.getUserRepositories(this.username);
+    this.page = page;
+    let direction = 'asc';
+    if(reverse) {
+      direction = 'desc';
+    }
+    const promiseUser = this.usersService.getUserRepositories(this.username, param, direction, page);
     promiseUser.then(
       res => {
         this.repositories = res;
