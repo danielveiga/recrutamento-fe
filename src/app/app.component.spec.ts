@@ -1,13 +1,23 @@
 import { TestBed, async } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { AppComponent } from '../src/app/app.component';
+import { AppComponent } from './app.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [ 
+        FormsModule,
+        RouterTestingModule
       ],
+      declarations: [
+        AppComponent,
+        NavBarComponent
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     }).compileComponents();
   }));
 
