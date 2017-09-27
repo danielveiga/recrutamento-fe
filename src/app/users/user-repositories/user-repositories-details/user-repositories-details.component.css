@@ -5,6 +5,7 @@
 .names{
     line-height: 1;
     display: inline-grid;
+    box-sizing: unset;
 }
 
 .others{

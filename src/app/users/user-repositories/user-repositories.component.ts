@@ -14,9 +14,12 @@ export class UserRepositoriesComponent implements OnInit {
   public loading = false;
   username;
   repositories: any[];
+  isClicked: boolean = false;
+  nameClicked;
 
   constructor(
-    private usersService: UsersService) { }
+    private usersService: UsersService,
+    private router: Router) { }
 
   ngOnInit() {
     this.username = this.usersService.getUsername();
@@ -32,6 +35,16 @@ export class UserRepositoriesComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  openDetails(repoName) {
+    this.router.navigate(['/user', this.username, 'repos', repoName]);
+    this.nameClicked = repoName;
+  }
+
+  closeDetails() {
+    this.router.navigate(['/user', this.username, 'repos']);
+    this.nameClicked = undefined;
   }
 
 }

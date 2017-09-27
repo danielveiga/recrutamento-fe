@@ -13,12 +13,23 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let repository of repositories">
+  <tbody *ngFor="let repository of repositories">
+    <tr>
       <td>{{repository.name}}</td>
       <td>{{repository.stargazers_count}}</td>
-      <td><a [routerLink]="[repository.name]" class="btn btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+      <td>
+        <a *ngIf="nameClicked != repository.name" (click)=" nameClicked = repository.name" [routerLink]="[repository.name]" class="btn btn-outline-primary">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="nameClicked == repository.name" (click)=" nameClicked = undefined" [routerLink]="['/user', username, 'repos']" class="btn btn-outline-primary">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </a>
+      </td>
+    </tr>
+    <tr [hidden]="(nameClicked != repository.name)">
+      <router-outlet></router-outlet>
     </tr>
   </tbody>
 </table>
+
 </div>
