@@ -26,7 +26,7 @@ export class UserRepositoriesComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.usersService.getUsername();
-    this.getUserRepositories('name', 'asc', this.page);
+    this.getUserRepositories('name', this.reverse, this.page);
   }
 
   sort(param) {

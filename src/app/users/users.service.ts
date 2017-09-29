@@ -27,7 +27,7 @@ export class UsersService {
                 .catch(this.handleErrorPromise);
     }
 
-    getUserRepositories(username, param, direction, page, perPage=10) {
+    getUserRepositories(username, param, direction='asc', page, perPage=10) {
         return this.http.get(this.apiUrl + 'users/' + username + '/repos', {params: {sort: param, direction: direction, page: page, per_page: perPage}}).toPromise()
                 .then(this.extractData)
                 .catch(this.handleErrorPromise);

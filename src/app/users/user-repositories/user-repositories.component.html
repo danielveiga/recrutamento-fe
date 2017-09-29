@@ -6,7 +6,7 @@
     <tr>
       <th (click)="sort('full_name');">
         Nome do repositório
-        <span [ngClass]="{'fa fa-chevron-up':reverse, 'fa fa-chevron-down':!reverse}"></span></th>
+        <i class="fa" [ngClass]="{'fa-chevron-down':!reverse, 'fa-chevron-up':reverse}" aria-hidden="true"></i>
       <th class="w50">Estrelas 
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star" aria-hidden="true"></i>
