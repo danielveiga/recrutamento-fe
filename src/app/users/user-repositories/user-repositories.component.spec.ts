@@ -13,7 +13,7 @@ describe('UserRepositoriesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         FormsModule,
         LoadingModule.forRoot({
           animationType: ANIMATION_TYPES.rotatingPlane,

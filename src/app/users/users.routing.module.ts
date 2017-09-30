@@ -9,7 +9,7 @@ import { UserRepositoriesDetailsComponent } from './user-repositories/user-repos
 
 const usersRoutes: Routes = [
     { path: 'user/:username', component: UsersComponent, children: [
-        { path: 'repos', component: UserRepositoriesComponent, children:[
+        { path: 'repos', component: UserRepositoriesComponent, children: [
             { path: ':name', component: UserRepositoriesDetailsComponent }
         ]}
     ]}

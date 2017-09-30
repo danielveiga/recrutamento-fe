@@ -14,11 +14,11 @@ export class UserRepositoriesComponent implements OnInit {
   public loading = false;
   username;
   repositories: any[];
-  isClicked: boolean = false;
+  isClicked = false;
   nameClicked;
-  reverse: boolean = false;
+  reverse = false;
   sortKey = 'full_name';
-  page: number = 1;
+  page = 1;
 
   constructor(
     private usersService: UsersService,
@@ -31,21 +31,21 @@ export class UserRepositoriesComponent implements OnInit {
 
   sort(param) {
     this.sortKey = param;
-    this.reverse = !this.reverse; 
+    this.reverse = !this.reverse;
     this.getUserRepositories(param, this.reverse, this.page);
   }
 
   nextPage() {
-    if(this.repositories.length==10){
-      this.page = this.page+1;
-      this.getUserRepositories(this.sortKey, this.reverse, this.page)
+    if (this.repositories.length === 10) {
+      this.page = this.page + 1;
+      this.getUserRepositories(this.sortKey, this.reverse, this.page);
     }
   }
 
   previousPage() {
-    if(this.page>1){
+    if (this.page > 1) {
       this.page--;
-      this.getUserRepositories(this.sortKey, this.reverse, this.page)
+      this.getUserRepositories(this.sortKey, this.reverse, this.page);
     }
   }
 
@@ -53,7 +53,7 @@ export class UserRepositoriesComponent implements OnInit {
     this.loading = true;
     this.page = page;
     let direction = 'asc';
-    if(reverse) {
+    if (reverse) {
       direction = 'desc';
     }
     const promiseUser = this.usersService.getUserRepositories(this.username, param, direction, page);
