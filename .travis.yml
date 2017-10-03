@@ -7,13 +7,20 @@ before_script: # commands to run before the build step
    - npm install -g --silent @angular/cli
 
 script: # the build step
-set -ev
+- '#!/bin/bash
 
-- 'if [ ${TRAVIS_SECURE_ENV_VARS} = "true" ]; then
-      ng lint || travis_terminate 1;
-      ng test --browser PhantomJS --watch=false || travis_terminate 1;
-      ng build --prod || travis_terminate 1;
-  fi'
+  set -ev
+
+  if [ ${TRAVIS_SECURE_ENV_VARS} = "true" ]; then
+      docker run project-container "npm run test";
+      docker run project-container "npm run test:lint";
+      docker-compose run ui-tests;
+  else
+      npm run test;
+      npm run test:lint;
+  fi
+
+  exit 0;'
 
 
 notifications:
