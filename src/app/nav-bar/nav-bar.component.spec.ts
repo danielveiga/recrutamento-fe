@@ -26,6 +26,7 @@ describe('NavBarComponent', () => {
   });
 
   it('should be created', () => {
+    expect(2).toBe(1);
     expect(component).toBeTruthy();
   });
 });
