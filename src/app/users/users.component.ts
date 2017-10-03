@@ -50,7 +50,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     )
     .catch(res => {
       this.user = undefined;
-      this.router.navigate(['/notfound']);
+      this.router.navigate(['/user/notfound']);
       this.loading = false;
     });
   }

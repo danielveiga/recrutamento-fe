@@ -9,12 +9,14 @@ import { UsersService } from './users/users.service';
 import { LoadingModule } from 'ngx-loading';
 import { AppRoutingModule } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -8,11 +8,12 @@ import { UsersComponent } from './users.component';
 import { UserRepositoriesDetailsComponent } from './user-repositories/user-repositories-details/user-repositories-details.component';
 
 const usersRoutes: Routes = [
+    { path: 'user/notfound', component: UserNotFoundComponent },
     { path: 'user/:username', component: UsersComponent, children: [
         { path: 'repos', component: UserRepositoriesComponent, children: [
             { path: ':name', component: UserRepositoriesDetailsComponent }
         ]}
-    ]}
+    ]},
 ];
 
 @NgModule({
