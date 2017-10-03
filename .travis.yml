@@ -12,9 +12,14 @@ script: # the build step
   set -ev
 
   if [ ${TRAVIS_SECURE_ENV_VARS} = "true" ]; then
-      ng lint || travis_terminate 1;
-      ng test --browser PhantomJS --watch=false || travis_terminate 1;
-      ng build --prod || travis_terminate 1;
+      docker run project-container "ng lint";
+      docker run project-container "ng test --browser PhantomJS --watch=false";
+      docker run project-container "ng build --prod";
+      docker-compose run ui-tests
+  else
+      ng lint;
+      ng test --browser PhantomJS --watch=false;
+      ng build --prod;
   fi
 
   exit 0;'
