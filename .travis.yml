@@ -7,9 +7,14 @@ before_script: # commands to run before the build step
    - npm install -g --silent @angular/cli
 
 script: # the build step
-   - ng lint
-   - ng test --browser PhantomJS --watch=false
-   - ng build --prod
+set -ev
+
+- if [ ${TRAVIS_SECURE_ENV_VARS} = "true" ]; then
+      ng lint || travis_terminate 1;
+      ng test --browser PhantomJS --watch=false || travis_terminate 1;
+      ng build --prod || travis_terminate 1;
+  fi
+
 
 notifications:
   email: # only receive email when the build status changes (someone broke the build!) 
